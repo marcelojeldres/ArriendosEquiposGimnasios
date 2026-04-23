@@ -1,4 +1,8 @@
 package com.example.EquiposDeGimnasios.Repository;
 
-public class ClienteRepository {
+import com.example.EquiposDeGimnasios.Model.Arriendo;
+import com.example.EquiposDeGimnasios.Model.Cliente;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 }
