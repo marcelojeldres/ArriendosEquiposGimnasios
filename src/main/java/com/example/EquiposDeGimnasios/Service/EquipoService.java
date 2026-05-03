@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@Slf4j // Para los Logs que pide la pauta
+@Slf4j
 public class EquipoService {
 
     @Autowired
