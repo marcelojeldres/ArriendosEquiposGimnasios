@@ -15,28 +15,29 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/api/v1/clientes")
-public class    ClienteController {
-
+public class ClienteController {
     @Autowired
     private ClienteService clienteService;
 
     @GetMapping
     public ResponseEntity<List<Cliente>> listar() {
-        log.info("Consultando lista completa de clientes");
-        List<Cliente> clientes = clienteService.findAll();
-        return ResponseEntity.ok(clientes);
+        return ResponseEntity.ok(clienteService.findAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Cliente> obtenerUno(@PathVariable Long id) {
+        return clienteService.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
     public ResponseEntity<Cliente> guardar(@Valid @RequestBody Cliente cliente) {
-        log.info("Registrando nuevo cliente con RUN: {}", cliente.getRun());
-        Cliente nuevo = clienteService.save(cliente);
-        return new ResponseEntity<>(nuevo, HttpStatus.CREATED);
+        return new ResponseEntity<>(clienteService.save(cliente), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Long id) {
-        log.warn("Eliminando cliente con ID: {}", id);
         clienteService.delete(id);
         return ResponseEntity.noContent().build();
     }
