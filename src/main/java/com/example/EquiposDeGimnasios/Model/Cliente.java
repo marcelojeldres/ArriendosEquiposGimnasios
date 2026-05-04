@@ -18,7 +18,7 @@ public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // Cambiado a Long
+    private Long id;
 
     @NotBlank(message = "El RUN no puede estar vacío")
     @Size(min = 9, max = 13, message = "El RUN debe tener entre 9 y 13 caracteres")

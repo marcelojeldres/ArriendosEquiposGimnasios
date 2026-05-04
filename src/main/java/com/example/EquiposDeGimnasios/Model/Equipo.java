@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Entity
 @Table(name = "equipos")
-@Data // Genera getters/setters con Lombok
+@Data
 
 public class Equipo {
 

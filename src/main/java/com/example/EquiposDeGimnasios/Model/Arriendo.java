@@ -38,5 +38,5 @@ public class Arriendo {
 
     private Double montoTotal;
 
-    private String estado; // EJ: "RESERVADO", "EN CURSO", "FINALIZADO", "CANCELADO"
+    private String estado;
 }
